@@ -1,3 +1,95 @@
 {
-  "users":[]
+  "users": [
+    {
+      "name": "Costache Mariana",
+      "username": "Mary",
+      "password": "mary123",
+      "email": "mary@yahoo.com",
+      "phone": "0722669123",
+      "message": "message from Mary",
+      "usertype": "basic",
+      "age": "junior",
+      "tnc": true,
+      "checkpassword": "mary123",
+      "id": 29
+    },
+    {
+      "name": "Ionescu Andrei",
+      "username": "Andy",
+      "password": "234andy",
+      "email": "andy@gmail.com",
+      "phone": "0722669234",
+      "message": "Andy message",
+      "usertype": "super",
+      "age": "adult",
+      "tnc": false,
+      "checkpassword": "234andy",
+      "id": 30
+    },
+    {
+      "name": "Voinea Viorica",
+      "username": "Vio",
+      "password": "vio345",
+      "email": "viorica@yahoo.com",
+      "phone": "0722669345",
+      "message": "Viorica message",
+      "usertype": "admin",
+      "age": "elderly",
+      "tnc": true,
+      "checkpassword": "vio345",
+      "id": 31
+    },
+    {
+      "name": "User Try Form",
+      "username": "any user",
+      "password": "xuser",
+      "email": "user@yahoo.com",
+      "phone": "0722669610",
+      "message": "user message",
+      "usertype": "admin",
+      "age": "adult",
+      "tnc": true,
+      "checkpassword": "xuser",
+      "id": 32
+    },
+    {
+      "name": "Mihaela Gabriela",
+      "username": "Gabi",
+      "password": "gabi123",
+      "email": "esmeraldagabriela83@yahoo.com",
+      "phone": "0722669610",
+      "message": "contact me",
+      "usertype": "admin",
+      "age": "junior",
+      "tnc": true,
+      "checkpassword": "gabi123",
+      "id": 33
+    },
+    {
+      "name": "Alexandru Aco",
+      "username": "Alin",
+      "password": "alin85",
+      "email": "alin@gmail.com",
+      "phone": "1234567890",
+      "message": "alin message",
+      "usertype": "basic",
+      "age": "adult",
+      "tnc": true,
+      "checkpassword": "alin85",
+      "id": 34
+    },
+    {
+      "name": "Teodora",
+      "username": "Teo",
+      "password": "teo789",
+      "email": "teo@gmail",
+      "phone": "0711223344",
+      "message": "teo message",
+      "usertype": "basic",
+      "age": "junior",
+      "tnc": true,
+      "checkpassword": "teo789",
+      "id": 35
+    }
+  ]
 }
