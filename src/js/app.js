@@ -31,6 +31,14 @@ function App(){
     <About/>
     <Form userid={"users.id"} formTitle={"Complete form"}/>
     <UsersData/>
+    <a href="programare.html">programeaza-te</a>
+
+    <ul>
+<li>Dental procedures</li>
+<a href="./procedures/detartraj.html"><li>parodontologie detartraj</li></a>
+<a href="./procedures/odontologie.html"><li>caria dentara obturatii</li></a>
+    </ul>
+
     </div>
     <div class="aside">
     <AsideRight/>
