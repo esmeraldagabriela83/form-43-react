@@ -635,5 +635,33 @@ select{
     background-color:#262626;
   }
 }
+/////////////////////-------------------------------------------------exercises try
+main button#showValueBtn{
+  margin-left: calc(50% - 150px);
+  margin-right: calc(50% - 150px);
+  color:green;
+  &:hover{
+    color:white;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ///////////
