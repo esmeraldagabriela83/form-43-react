@@ -45,6 +45,9 @@ function App(){
 <a href="./procedures/arrays.html"><li>all array exercises</li></a>
 <a href="./procedures/mapFilterReduce.html"><li>all map , filter reduce................</li></a>
 <a href="./procedures/objects.html"><li>all objects fro course and tutotials................</li></a>
+<a href="./procedures/selectori.html"><li>selectori page html</li></a>
+<a href="./procedures/objectsDiscord.html"><li>objects and selectori discord and w 3 school</li></a>
+<a href="./procedures/newTutorial.html"><li>new tutorial page</li></a>
     </ul>
 
     </div>

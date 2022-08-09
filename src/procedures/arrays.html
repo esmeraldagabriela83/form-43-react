@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
 
-    <!-- ion icons -->
+<head>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="ie=edge" http-equiv="X-UA-Compatible" />
 
-      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!-- ion icons -->
 
-      <!-- ion icons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-    <title>Arrays</title>
-    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
-  </head>
-  <body>
-    <main class="container"
-    style="
+  <!-- ion icons -->
+
+  <title>Arrays</title>
+  <link href="../css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <main class="container" style="
     display:flex ;
      align-items:center ;
      justify-content:center ;
@@ -26,86 +27,346 @@
       ">
 
 
-<div style="border:3px dotted Salmon; padding:0.3em ; margin:1em">
-<p id="mixingParagraph"></p>
-</div>
+    <div style="border:3px dotted Salmon; padding:0.3em ; margin:1em">
+      <p id="mixingParagraph"></p>
+    </div>
 
-<div style="border:3px dotted BlueViolet ; padding:0.3em ; margin:1em">
+    <div style="border:3px dotted BlueViolet ; padding:0.3em ; margin:1em">
 
-<input type="text" id="userMix" name="fname"><br><br>
-<button id="userMixBtn">Add user input with 10 </button>
-<p id="userMixParagraph"></p>
-</div>
+      <input type="text" id="userMix" name="fname"><br><br>
+      <button id="userMixBtn">Add user input with 10 </button>
+      <p id="userMixParagraph"></p>
+    </div>
 
-<div style="border:3px dotted Aquamarine ; padding:0.3em ; margin:1em">
-<ul>
-<li class="displayLi oneLI"></li>
-<li class="displayLi twoLI"></li>
-<li class="displayLi threeLI"></li>
+    <div style="border:3px dotted Aquamarine ; padding:0.3em ; margin:1em">
+      <ul>
+        <li class="displayLi oneLI"></li>
+        <li class="displayLi twoLI"></li>
+        <li class="displayLi threeLI"></li>
+      </ul>
+    </div>
+
+    <div style="border:3px dotted red ; padding:1em ; margin:1em">
+      <ul>
+        <li class="displayLi firstLI"></li>
+        <li class="displayLi secondLI"></li>
+        <li class="displayLi thirdLI"></li>
+      </ul>
+    </div>
+
+    <div style="border:3px dotted red ; padding:0.3em ; margin:1em">
+      <p id="commonElArr"></p>
+      <ul>
+        <li class="commonLIArr"></li>
+        <li class="commonLIArr"></li>
+        <li class="commonLIArr"></li>
+      </ul>
+    </div>
+
+    <div style="border:3px dotted Brown; padding:0.3em ; margin:1em">
+      <p id="allS1elementsFunc"></p>
+      <p id="allS1elementsArr"></p>
+      <ul>
+        <li class="eachS1elementsArr"></li>
+        <li class="eachS1elementsArr"></li>
+        <li class="eachS1elementsArr"></li>
+        <li class="eachS1elementsArr"></li>
+        <li class="eachS1elementsArr"></li>
+      </ul>
+      <label for="fUserNr">introduce a number:
+        <input type="text" id="addUserInput" name="addUserInput">
+      </label><br><br>
+      <button id="addUserBtn">Add numbers upon your nr</button>
+      <p id="addUserParagraph"></p>
+    </div>
+
+    <div style="border:3px dotted Brown; padding:0.3em ; margin:1em">
+      <button id="popElArr">remove el arr by pop()</button>
+      <p id="remainedElArr"></p>
+    </div>
+
+    <div style="border:3px dotted green; padding:0.3em ; margin:1em">
+      <p id="displayElArr"></p>
+      <button id="popElArr2">show removed el arr by pop()</button>
+      <p id="removedElArr"></p>
+    </div>
+
+    <div style="border:3px dotted blue; padding:0.3em ; margin:1em">
+      <ul>
+        <li class="eachFruitMihai"></li>
+        <li class="eachFruitMihai"></li>
+        <li class="eachFruitMihai"></li>
+        <li class="eachFruitMihai"></li>
+        <li class="eachFruitMihai"></li>
+      </ul>
+
+      <p id="all-fruits"></p>
+
+    </div>
+
+    <div style="border:3px dotted BlueViolet ; padding:0.3em ; margin:1em">
+      concatenare : arrX.concat(arrY)
+      <ul>
+        <li class="concatLi"></li>
+        <li class="concatLi"></li>
+        <li class="concatLi"></li>
+        <li class="concatLi"></li>
+        <li class="concatLi"></li>
+      </ul>
+      <p id="arrNamesConcat"></p>
+    </div>
+
+    <div style="border:3px dotted indigo ; padding:0.3em ; margin:1em">
+      ES6 ...spread operator
+      <ul>
+        <li class="spreadLi"></li>
+        <li class="spreadLi"></li>
+        <li class="spreadLi"></li>
+        <li class="spreadLi"></li>
+        <li class="spreadLi"></li>
+      </ul>
+      <p id="arrNamesSpread"></p>
+    </div>
+
+    <div style="border:3px dotted indigo ; padding:0.3em ; margin:1em">
+      concatenare array
+      <p id="arrWithArraysParagraph"></p>
+      <ul style="display:flex">
+
+        <li class="mixedEl"></li>
+        <li class="mixedEl"></li>
+        <li class="mixedEl"></li>
+        <li class="mixedEl"></li>
+        <li class="mixedEl"></li>
+        <li class="mixedEl"></li>
+
+      </ul>
+    </div>
+
+    <div style="border:3px dotted indigo ; padding:0.3em ; margin:1em">
+      <p id="saturday"></p>
+      <ul>
+        <li class="saturdayLi"></li>
+        <li class="saturdayLi"></li>
+        <li class="saturdayLi"></li>
+        <li class="saturdayLi"></li>
+        <li class="saturdayLi"></li>
+      </ul>
+    </div>
+
+    <div style="border:3px dotted CornflowerBlue ; padding:0.3em ; margin:1em">
+      <p id="combinedArr"></p>
+    </div>
+
+    <div style="border:3px dotted DarkCyan ; padding:0.3em ; margin:1em">
+      <p id="restArrAll"></p>
+      <ul>
+        <li class="restLi"></li>
+        <li class="restLi"></li>
+        <li class="restLi"></li>
+        <li class="restLi"></li>
+        <li class="restLi"></li>
+        <li class="restLi"></li>
+      </ul>
+    </div>
+
+    <div style="border:3px dotted Brown ; padding:0.3em ; margin:1em">data-text ; data-color
+      <p id="paragraphId" class="sample_class_paragraph" data-text="my text paragraph"></p>
+      <button id="btnId">click for text</button><br>
+
+      <button id="btnIdSec">click for color</button>
+      <p id="paragraphIdSec" data-color="orange">second paragraph</p>
+    </div>
+
+    <div style="border:3px dotted Chartreuse ; padding:1em ; margin:1em" id="parentDivContainer">
+      <p>paragraf 1</p>
+      <p>paragraf 2</p>
+      <ul id="ul-list">
+        <li class="sample-class">li 1</li>
+        <li class="sample-class">li 2</li>
+        <li class="sample-class">li 3</li>
+        <li class="sample-class">li 4</li>
+        <li class="sample-class">li 5</li>
+      </ul>
+      <p>paragraf 3</p>
+      <p>paragraf 4</p>
+      <section class="sample-class">section 1</section>
+      <article class="sample-class">article 1</article>
+      <p>paragraf 5</p>
+      <p>paragraf 6</p>
+
+      <button id="changeColorBtn">change color for one children</button>
+    </div>
+
+    <div style="border:3px dotted Crimson ; padding:0.3em ; margin:1em">
+      <h3>The Element Object</h3>
+      <h3>The children Property</h3>
+
+      <select id="mySelect" size="4">
+        <option value="animal 1">girafa</option>
+        <option value="animal 2">elefant</option>
+        <option value="animal 3">peste</option>
+        <option value="animal 4">crocodil</option>
+        <option value="animal 5">cat</option>
+        <option value="animal 6">dog</option>
+        <option value="animal 7">mouse</option>
+        <option value="animal 8">bird</option>
+      </select>
+
+      <p>The text of the third child element (index 3) of the select element is:</p>
+      <p id="demoSelect"></p>
+      <p id="inner-text-option"></p>
+
+
+      <p>show selected option text: <span id="select-option"></span></p>
+    </div>
+
+    <div style="border:3px dotted DarkSalmon ; padding:0.3em ; margin:1em" id="parentSchool">
+      <h3>The Element Object</h3>
+      <h3>The children Property</h3>
+
+      <p>Click "Change" to change the background of all child elements of body.</p>
+
+      <button id="changeBGbtn">Change bg color of all children</button>
+
+      <h2>I am a h2 element</h2>
+      <div>I am a div element</div>
+      <span>I am a span element</span>
+
+      <button id="changeOneBGbtn">Change bg color of one children</button>
+      <button id="changeLastBGbtn">Change bg color of one children</button>
+    </div>
+
+    <div style="border:3px dotted DarkCyan ; padding:0.3em ; margin:1em">
+
+      <div style="border:3px dotted DarkCyan ; padding:0.3em ; margin:1em" id="myContainer">initial text</div>
+      <button data-text="button-one" class="myButton">click</button>
+      <button data-text="button-two" class="myButton">click</button>
+      <button data-text="button-three" class="myButton">click</button>
+      <button data-text="button-four" class="myButton">click</button>
+      <button data-text="button-five" class="myButton">click</button>
+
+    </div>
+
+    <div style="border:3px dotted CornflowerBlue ; padding:0.3em ; margin:1em">
+      <h3>The Element Object</h3>
+      <h3>The cloneNode() Method</h3>
+
+      <button id="copyMilk">clone milk</button>
+      <button id="icecream">clone icecream</button>
+      <button id="copyWater">clone water</button>
+
+      <ul id="mylist1">
+        <li>coffee</li>
+        <li>tea</li>
+      </ul>
+
+      <ul id="mylist2">
+        <li>water</li>
+        <li>icecream</li>
+        <li>milk</li>
+      </ul>
+
+      <p>If you change the <b>deep</b> parameter to false, <br>only an empty LI element will be cloned.</p>
+
+    </div>
+
+    <div style="border:3px dotted indigo ; padding:0.3em ; margin:1em">
+
+      <ul id="shopping-list">
+        <li class="vegetable">castraveti</li>
+        <li class="vegetable">migdale</li>
+        <li class="vegetable">apa minerala</li>
+        <li class="vegetable">ceapa</li>
+        <li class="vegetable">rosii</li>
+      </ul>
+
+      <button id="btn1">add bread</button><br>
+      <button id="btn2">remove each el of ul , one after anoter from top to bottom</button><br>
+      <button id="btn3">remove each el of ul , one after anoter from bottom to top</button><br>
+      <button id="btn4">add migdale</button>
+
+    </div>
+
+    <div style="border:3px dotted crimson ; padding:0.3em ; margin:1em">
+
+      <h4>The Element Object</h4>
+      <h4>The appendChild() Method</h4>
+
+      <ul id="appendList">
+        <li>Coffee</li>
+        <li>Tea</li>
+      </ul>
+
+      <p>Click "Append" to append an item to the end of the list:</p>
+
+      <button id="btnAppend">Append</button>
+
+    </div>
+
+    <div style="border:3px dotted DarkBlue ; padding:0.3em ; margin:1em">
+
+      <ul id="listAppend1">
+        <li>elefanti</li>
+        <li>crocodili</li>
+      </ul>
+      <ul id="listAppend2">
+        <li>alune</li>
+        <li>seminte</li>
+        <li>castane</li>
+        <li>nuci</li>
+      </ul>
+
+      <p>Click "Move" to move an item from one list to another:</p>
+
+      <button id="moveLiLast">Move last el of second list</button>
+      <button id="moveLiFirst">Move first el of second list</button>
+
+    </div>
+
+    <div style="border:3px dotted magenta ; padding:0.3em ; margin:1em">
+      <article style="border:3px solid yellowgreen">
+        <p>I am a p inside article outside myDIV and next to me an img fro HTML</p>
+        <img src="../assets/images/cake.jpg" alt="img inside myDIV" style="border:3px solid red ; width:20%" />
+      </article>
+
+      <h4>The Element Object</h4>
+      <h4>The appendChild() Method</h4>
+
+      <p>Click "Append" create a paragraph and append it to myDIV:</p>
+
+      <button id="addDOMelBtn">Append paragraph</button>
+      <button id="addDOMelImageBtn">Append photo</button>
+      <button id="addDOMelCircleBtn">Append circle div</button>
+      <div id="myDIV" style="display:flex ; flex-wrap:wrap">
+          <h4>I am a h4 inside myDIV</h4>
+      </div>
+
+    </div>
+
+      <!-- <div style="border:3px dotted DarkViolet ; padding:0.3em ; margin:1em">
+        <p>Click "Append" to create a p element and append it to the document's body:</p>
+
+        <button id="createDOMbtn">Append</button>
+      </div> -->
+
+  <div style="border:3px dotted DarkGoldenRod ; padding:0.3em ; margin:1em">
+<ul id="domesticList">
+<li class="domesticLi">catel</li>
+<li class="domesticLi">pisic</li>
+<li class="domesticLi">soarece</li>
+<li class="domesticLi">pasare</li>
+<li class="domesticLi">miel</li>
 </ul>
-</div>
+<button id="changeListBtn1">change 1 the list add sarpe</button>
+<button id="changeListBtn2">change 2 the list sterge ultimul el</button>
+<button id="changeListBtn3">change 3 the list clone the first el li of list</button>
+  </div>
 
-<div style="border:3px dotted red ; padding:1em ; margin:1em">
-  <ul>
-  <li class="displayLi firstLI"></li>
-  <li class="displayLi secondLI"></li>
-  <li class="displayLi thirdLI"></li>
-  </ul>
-</div>
+  </main>
+  <!-- <script src="build/out.js"></script> -->
+  <script src="../js/array-cata.js"></script>
 
-<div style="border:3px dotted red ; padding:0.3em ; margin:1em">
-<p id="commonElArr"></p>
-<ul>
-<li class="commonLIArr"></li>
-<li class="commonLIArr"></li>
-<li class="commonLIArr"></li>
-</ul>
-</div>
+</body>
 
-<div style="border:3px dotted Brown; padding:0.3em ; margin:1em">
-<p id="allS1elementsFunc"></p>
-<p id="allS1elementsArr"></p>
-<ul>
-<li class="eachS1elementsArr"></li>
-<li class="eachS1elementsArr"></li>
-<li class="eachS1elementsArr"></li>
-<li class="eachS1elementsArr"></li>
-<li class="eachS1elementsArr"></li>
-</ul>
-<label for="fUserNr">introduce a number:
-<input type="text" id="addUserInput" name="addUserInput">
-</label><br><br>
-<button id="addUserBtn">Add numbers upon your nr</button>
-<p id="addUserParagraph"></p>
-</div>
-
-<div style="border:3px dotted Brown; padding:0.3em ; margin:1em">
-<button id="popElArr">remove el arr by pop()</button>
-<p id="remainedElArr"></p>
-</div>
-
-<div style="border:3px dotted green; padding:0.3em ; margin:1em">
-<p id="displayElArr"></p>
-<button id="popElArr2">show removed el arr by pop()</button>
-<p id="removedElArr"></p>
-</div>
-
-<div style="border:3px dotted blue; padding:0.3em ; margin:1em">
-<ul>
-<li class="eachFruitMihai"></li>
-<li class="eachFruitMihai"></li>
-<li class="eachFruitMihai"></li>
-<li class="eachFruitMihai"></li>
-<li class="eachFruitMihai"></li>
-</ul>
-
-<p id="all-fruits"></p>
-
-</div>
-
-    </main>
-    <!-- <script src="build/out.js"></script> -->
-        <script src="../js/array-cata.js"></script>
-
-  </body>
 </html>
