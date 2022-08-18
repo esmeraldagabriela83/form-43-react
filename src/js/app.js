@@ -48,6 +48,8 @@ function App(){
 <a href="./procedures/selectori.html"><li>selectori page html</li></a>
 <a href="./procedures/objectsDiscord.html"><li>objects and selectori discord and w 3 school</li></a>
 <a href="./procedures/newTutorial.html"><li>new tutorial page</li></a>
+<a href="./procedures/schoolJSON.html"><li>school json page</li></a>
+<a href="./procedures/school-objects.html"><li>school objects page</li></a>
     </ul>
 
     </div>
