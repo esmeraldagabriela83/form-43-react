@@ -307,7 +307,7 @@ for(let i=0 ; i<alleachNr.length ; i++){
 //------------------------------------------------------------------------------SPREAD OPERATOR CLONARE ARRAY SI OBJECT 19 04 DISCORD
 //React ES6 Spread Operator
 //https://www.w3schools.com/react/react_es6_spread.asp
-
+//rest
 const spreadNumbers = [11, 21, 31, 41, 51, 61];
 console.log("spreadNumbers before is : " , spreadNumbers);
 const [one, two, ...rest] = spreadNumbers;
@@ -637,24 +637,645 @@ console.log("new people array after function call is : ", newPeople);
 // 5: {person: 'c', profession: 'd'}
 // 6: {person: 'e', profession: 'f'}
 
+//------------------------------------------------------------------------------
+const allliRestName=document.querySelectorAll(".liRestName");
+for(let i=0 ; i<allliRestName.length ; i++){
+  allliRestName[i].style.border="3px dotted purple";
+  allliRestName[i].style.padding="0.5em";
+  allliRestName[i].style.margin="0.5em";
+}
+
+function restMeNames(a, b , ...args){
+  console.log("a is : " , a);
+    console.log("b is : " , b);
+      console.log("args is : " , args);
+      return allliRestName[0].innerText=a , allliRestName[1].innerText=b , allliRestName[2].innerText=args;
+}
+
+//apel functie
+restMeNames("Aurel" , "Costel" , "Gigel" , "Maria" , "Ramona" , "Mirabela");
+
+//------------------------------------------------------------------------------
+//este let pt ca va fi modificat cu push
+let dogNames=["grivei" , "cutu" , "catel" , "caine" , "lupusoru"];
+console.log("dogNames is : " , dogNames);
+
+const newDogsNames=[...dogNames];
+console.log("newDogsNames is : " , newDogsNames);
+
+function setDogNames(...dogArgs){
+  console.log("dogArgs is : " , dogArgs);
+dogArgs.forEach(el =>{
+  //dogNames ramane neschimbat , doar newDogsNames va fi modificat cu push()
+  newDogsNames.push(el);
+})
+}
+
+//apel functie
+setDogNames("catel1" , "catel2" , "catel3");
+
+console.log("dogNames is : " , dogNames);//(5) ['grivei', 'cutu', 'catel', 'caine', 'lupusoru'] a ramas nemodificat
+console.log("newDogsNames is : " , newDogsNames);//(8) ['grivei', 'cutu', 'catel', 'caine', 'lupusoru', 'catel1', 'catel2', 'catel3']
+//ATENTIE ATENTIE ATENTIE --- MAP ARE RETURN
+const doglis=newDogsNames.map(el =>{
+  let dogli=document.createElement("li");
+  dogli.style.border="3px dotted red";
+  dogli.style.padding="0.5em";
+  dogli.style.margin="0.5em";
+  dogli.innerText=el;
+  dogli.style.textAlign="right";
+  return dogli;
+})
+
+const dogUl=document.createElement("ul")
+dogUl.className="allDogUl";
+dogUl.id="ulId";
+
+doglis.forEach(el =>{
+//ATENTIE ATENTIE ATENTIE --- forEach nu are return
+  dogUl.appendChild(el)
+})
+
+document.getElementById("section12").appendChild(dogUl);
+
+//------------------------------------------------------------------------------
+
+console.log("after ex 3 discord 19 04 2022");
+let cats=[
+  {
+    "catName":"soficu",
+    "aspect":"dungulite",
+    "id":1
+  },
+  {
+    "catName":"firutu",
+    "aspect":"gri",
+    "id":2
+  },
+  {
+    "catName":"pit",
+    "aspect":"alb-portocaliu",
+    "id":3
+  }
+];
+console.log("cats is : " , cats);
+// cats is :
+// (3) [{…}, {…}, {…}]
+// 0: {catName: 'soficu', aspect: 'dungulite', id: 1}
+// 1: {catName: 'firutu', aspect: 'gri', id: 2}
+// 2: {catName: 'pit', aspect: 'alb-portocaliu', id: 1}
+// length: 3
+
+
+//afiseaza in pag doar pisicile din cats array
+const alllicat=document.querySelectorAll(".licat");
+for(let i=0 ; i<alllicat.length ; i++){
+  alllicat[i].style.border="3px dotted magenta";
+  alllicat[i].style.padding="0.5em";
+  alllicat[i].style.margin="0.5em";
+  alllicat[i].innerText=cats.map((el , index) =>{
+    return el.catName + " has this aspect " + el.aspect + " and has id : " + el.id;
+  })[i];
+}
+//spread aplicat pt a copia array
+const newCats=[...cats];
+console.log("newCats is : " , newCats);//newCats is :  (3) [{…}, {…}, {…}]
+//rest se aplica la parametri formali
+function setCatName(...argsCat){
+  console.log("argsCat is : " , argsCat);
+  argsCat.forEach(el =>{
+    //el este fiecare pisica noua adaugata prin apel functie
+    newCats.push(el);
+  })
+}
+
+//apel functie
+setCatName(
+  {
+    "catName":"pisic4",
+    "aspect":"culoare4",
+    "id":4
+  },
+  {
+    "catName":"pisica5",
+    "aspect":"culoare5",
+    "id":5
+  },
+  {
+    "catName":"pisica6",
+    "aspect":"culoare6",
+    "id":6
+  }
+);
+
+//alt apel functie
+setCatName(
+  {
+    "catName":"pisica7",
+    "aspect":"culoare7",
+    "id":7
+  }
+)
+
+console.log("cats is : " , cats);//cats is :  (3) [{…}, {…}, {…}]
+console.log("newCats after apel functie care modifica array-ul initial cu push() is " , newCats);
+// newCats after apel functie care modifica array-ul initial cu push() is
+// (7) [{…}, {…}, {…}, {…}, {…}, {…}, {…}]
+// 0: {catName: 'soficu', aspect: 'dungulite', id: 1}
+// 1: {catName: 'firutu', aspect: 'gri', id: 2}
+// 2: {catName: 'pit', aspect: 'alb-portocaliu', id: 3}
+// 3: {catName: 'pisic4', aspect: 'culoare4', id: 4}
+// 4: {catName: 'pisica5', aspect: 'culoare5', id: 5}
+// 5: {catName: 'pisica6', aspect: 'culoare6', id: 6}
+// 6: {catName: 'pisica7', aspect: 'culoare7', id: 7}
+// length: 7
+
+//afiseaza toate pisicile in pag
+const catLis=newCats.map((el , index) =>{
+  //el este fiecare pisica obiect din newCats
+  let catLi=document.createElement("li");
+  catLi.style.border="3px dotted blue";
+  catLi.style.padding="0.5em";
+  catLi.style.margin="0.5em";
+  catLi.innerText=el.catName + " has aspect : " + el.aspect + " and id : " + el.id;
+  catLi.style.textAlign="center";
+  return catLi;
+})
+
+const catUl=document.createElement("ul");
+catUl.style.border="3px dashed green";
+
+catLis.forEach(el =>{
+  //el este fiecare catLi
+  catUl.appendChild(el);
+})
+
+document.getElementById("section13").appendChild(catUl);
+//------------------------------------------------------------------------------
+//19 04 2022 discord
+const myStr="Mihaela Gabriela Acornicesei";
+console.log("myStr is : " , myStr);
+
+let myResult=[...myStr].map((el , index) => index %2 === 0 ? el.toUpperCase() : el.toLowerCase()).join(" ");
+console.log("myResult is : " , myResult);
+
+//------------------------------------------------------------------------------
+const standardArr=["a" , "b" , 2 , 4 , 5];
+//spread
+const copyStandardArray=[...standardArr];
+
+standardArr.push("added element");
+console.log("after modification standardArr is : " , standardArr);
+//after modification standardArr is :  (6) ['a', 'b', 2, 4, 5, 'added element']
+console.log("after modification copyStandardArray is : " , copyStandardArray);
+//after modification copyStandardArray is :  (5) ['a', 'b', 2, 4, 5]
+
+//-------------------------
+const standardObj={
+    "id":1,
+  "prop1":"value1",
+  "prop2":"value2",
+  "prop3":"value3"
+};
+//spread aplicat pt a copia obj
+const standardObj2={
+  ...standardObj,
+    "prop3":"value33",
+    "prop4":"value4",
+    "prop5":"value5"
+}
+console.log("--- standardObj2 is : " , standardObj2);
+//--- standardObj2 is :  {id: 1, prop1: 'value1', prop2: 'value2', prop3: 'value33', prop4: 'value4', …}
+
+//------------------------------------------------------------------------------
+const stanObj={
+  "id":2,
+  "property1":"val1",
+  "property2":"val2",
+  "property3":"val3"
+};
+
+const copyStanObj={...stanObj};
+const alwaysCopyStanObj=stanObj;
+
+stanObj.property1="micu-pisicu";
+stanObj.property2="lupusoru";
+
+console.log("stanObj after modification is : " , stanObj);
+// stanObj after modification is :
+// {id: 2, property1: 'micu-pisicu', property2: 'lupusoru', property3: 'val3'}
+// id: 2
+// property1: "micu-pisicu"
+// property2: "lupusoru"
+// property3: "val3"
+
+console.log("copyStanObj tre sa ramana neschimbat : " , copyStanObj);
+// copyStanObj tre sa ramana neschimbat :
+// {id: 2, property1: 'val1', property2: 'val2', property3: 'val3'}
+// id: 2
+// property1: "val1"
+// property2: "val2"
+// property3: "val3"
 
 
 
+console.log("alwaysCopyStanObj e modificat ca si array-ul initial: " , alwaysCopyStanObj);
+// alwaysCopyStanObj e modificat ca si array-ul initial:
+// {id: 2, property1: 'micu-pisicu', property2: 'lupusoru', property3: 'val3'}
+// id: 2
+// property1: "micu-pisicu"
+// property2: "lupusoru"
+// property3: "val3"
 
 
+//------------------------------------------------------------------------------
+const myBrother="Alexandru Acornicesei";
+
+document.getElementById('paragraph14').innerText=myBrother;
+document.getElementById('paragraph14').style.color="IndianRed";
+document.getElementById('paragraph14').style.textShadow="2px 2px gray";
+document.getElementById('paragraph14').style.fontWeight="bold";
+
+const copyBrother=[...myBrother];
+
+const changeNameBtn=document.getElementById('changeNameBtn');
+changeNameBtn.style.border="3px dashed yellow";
+changeNameBtn.addEventListener("click" , changeBrotherNameFunc);
+function changeBrotherNameFunc(event){
+  event.preventDefault();
+  console.log("this is : " , this);
+  console.log("you clicked the change name of brother");
+  this.previousElementSibling.style.backgroundColor="LightBlue";
+  this.parentElement.style.backgroundColor="Khaki";
+  this.style.border="3px solid black";
+  return document.getElementById('paragraph14').innerText=copyBrother.map((el , index) => index %2 === 0 ? el.toUpperCase() : el.toLowerCase()).join(" / ");
+}
+
+//show obj on page
+
+const woman={
+  "id":1,
+  "eyeColor":"blue",
+  "tall":"1,75 m",
+  "cloth":"pink dress",
+  "age":45
+}
+
+const womanParagraph=document.getElementById('womanParagraph');
+womanParagraph.style.border="3px dotted orange";
+womanParagraph.innerText=Object.keys(woman).join(" , ") + Object.values(woman).join(" , ");
+
+const allLiWom=document.querySelectorAll(".liWom");
+console.log("-----allLiWom is arr : " , allLiWom);
+
+for(let i=0 ; i<allLiWom.length ; i++){
+  allLiWom[i].style.border="3px dashed yellow";
+  allLiWom[i].style.padding="0.5em";
+  allLiWom[i].style.margin="0.5em";
+  allLiWom[i].innerText=Object.keys(woman)[i] + " : " +  Object.values(woman)[i];
+}
+
+//------------------------------------------------------------------------------
+const animalsArr=["pig" , "girafa" , "cal" , "caprita" , "gaina"];
+
+const animalParagraph=document.getElementById('animalParagraph');
+animalParagraph.innerText=animalsArr.join(" , ");
+//
+const allliAnimal=document.querySelectorAll(".liAnimal");
+for(let i=0 ; i<allliAnimal.length ; i++){
+  allliAnimal[i].style.border="3px dashed yellow";
+  allliAnimal[i].innerText=animalsArr[i];
+  allliAnimal[i].style.textAlign="right";
+}
+//
+const arrWithObjBirds=[
+  {
+    "name":"bird1",
+    "color":"blue",
+    "fly":"in the sky"
+  },
+  {
+    "name":"bird2",
+    "color":"yellow",
+    "fly":"on the roof"
+  },
+  {
+    "name":"bird3",
+    "color":"green",
+    "fly":"on the window"
+  }
+];
+console.log("--- arrWithObjBirds is : " , arrWithObjBirds);
+// --- arrWithObjBirds is :
+// (3) [{…}, {…}, {…}]
+// 0: {name: 'bird1', color: 'blue', fly: 'in the sky'}
+// 1: {name: 'bird2', color: 'yellow', fly: 'on the roof'}
+// 2: {name: 'bird3', color: 'green', fly: 'on the window'}
+// length: 3
+
+const allLiBird=document.querySelectorAll(".liBird");
+for(let i=0 ; i<allLiBird.length ;i++){
+  allLiBird[i].style.border="3px dotted indigo";
+  allLiBird[i].innerText=arrWithObjBirds.map((el , index) =>{
+    return el.name + " has color :  " + el.color + " and fly : " + el.fly + ".";
+  })[i];
+}
+
+//--------or----------------------------------------------------------------------
+
+const birdLis=arrWithObjBirds.map((el , index) =>{
+  //el este fiecare obj bird din arrWithObjBirds arr
+  const birdLi=document.createElement("li");
+  birdLi.style.border="3px dashed orange";
+  birdLi.innerText=el.name + " has color :  " + el.color + " and fly : " + el.fly + ".";
+  return birdLi;
+})
+
+const birdUl=document.createElement("ul");
+birdUl.style.border="3px solid gray";
+
+birdLis.forEach(el =>{
+  //el reprezinta fiecare birdLi
+  birdUl.appendChild(el);
+})
+
+document.getElementById('section17').appendChild(birdUl);
+
+//------------------------------------------------------------------------------TEMPLATE STRINGS
+
+//TEMPLATE STRINGS (Sabloane pentru sir de caractere);
+
+let name = "Gigel";
+let surname = "Popovici";
+
+const template1=`Name: ${name}\nPrenume: ${surname}`;
+console.log("template1 is : " , template1);
+
+const template1Paragraph=document.getElementById('template1Paragraph');
+template1Paragraph.innerText=template1;
+//-----
+const template2=`Full name : ${name} ${surname}`;
+console.log("template2 is : " , template2);
+
+const template2Paragraph=document.getElementById('template2Paragraph');
+template2Paragraph.innerText=template2;
+//------------------------------------------------------------------------------
+
+const template3=`Name: ${name.toUpperCase()} Surname: ${surname.split(" ").join("|")}`;
+console.log("template3 is : " , template3);
+
+const template3Paragraph=document.getElementById('template3Paragraph');
+template3Paragraph.innerText=template3;
+
+//------------------------------------------------------------------------------
+const photoTemplate=document.getElementById('photo-template');
+console.log("photoTemplate is : " , photoTemplate);
+photoTemplate.src="../../assets/images/cake.jpg";
+photoTemplate.style.height="300px";
+
+//!!!DECI CODUL PUS INTRE ${cod javascript} VA FI EVALUAT NORMAL
+///!!!OBSERVATIE: ce punem intre ${cod js} trebuie sa fie CONVERTIBIL la string
+
+//-------------------------------------------------------------------------------
+const arrStringsItems=["scaun" , "plomba" , "gard" , "patura" , "perdea"];
+
+const templateArr = `first item is :${arrStringsItems[0]} and second item is :${arrStringsItems[1]}`;
+console.log("templateArr is : ",templateArr);
+
+const templateArr2=`third item: ${arrStringsItems[2]} and fourth item is: ${arrStringsItems[3].split("").join("|")}`;
+
+const paragraphTemplateArray=document.getElementById('paragraphTemplateArray');
+paragraphTemplateArray.innerText=templateArr2;
+
+//------------------------------------------------------------------------------
+//discord 19 04 19042022
+const personEx = {
+  name: "Vlad",
+  lastName: "Popescu",
+  yearOfBirth: 1431,
+  proffesion: "Lord of Wallachia",
+  srcObj:"../../assets/images/ginger.png",
+  heightImg:"300px",
+  borderObj:"3px solid yellowgreen"
+};
+
+const allLiPersonEx=document.querySelectorAll(".liPersonEx");
+console.log("allLiPersonEx is an array : " , allLiPersonEx);
+
+for(let i=0 ; i<allLiPersonEx.length ; i++){
+  allLiPersonEx[i].style.border="3px solid pink";
+  allLiPersonEx[i].style.padding="0.5em";
+  allLiPersonEx[i].style.margin="0.5em";
+}
+allLiPersonEx[0].innerText=personEx.name;
+allLiPersonEx[1].innerText=personEx.lastName;
+allLiPersonEx[2].innerText=`Person ${personEx.name} ${personEx.lastName} was born in ${personEx.yearOfBirth} and has the proffesion of ${personEx.proffesion}`;
+
+const exPersonImg=document.getElementById('exPersonImg');
+exPersonImg.style.border=personEx.borderObj;
+exPersonImg.style.height=personEx.heightImg;
+exPersonImg.src=personEx.srcObj;
+
+//------------------------------------------------------------------------------
+const personsEx = [
+  personEx ,
+  {
+    name: "Mircea",
+    lastName: "Cel Batran",
+    yearOfBirth: 1231,
+    proffesion: "Jemcher"
+  },
+  {
+    name: "Stefan",
+    lastName: "Cel mare",
+    yearOfBirth: 1430,
+    proffesion: "Lord of Moldova"
+  }
+];
+console.log("personsEx is : " , personsEx);//(3) [{…}, {…}, {…}]
+console.log("personsEx.length is : " , personsEx.length);//3
+
+//functia primeste ca parametru formal un obiect
+
+function whoAreYou(eachPersonObj){
+  return ` My name is ${eachPersonObj.name} ${eachPersonObj.lastName} .
+  I am ${(new Date()).getFullYear() - eachPersonObj.yearOfBirth} .
+  My profession is ${eachPersonObj.proffesion} .`
+}
+
+console.log("get full year shows : " , (new Date()).getFullYear());
+
+console.log(whoAreYou(personEx));
+// My name is Vlad Popescu .
+//  I am 591 .
+//  My profession is Lord of Wallachia .
+
+//pt afisare in pagina folosesc functia de afisare forEach , nu are return
+
+personsEx.forEach(el =>{
+  //el este fiecare obiect din arrayul personsEx
+  console.log(whoAreYou(el));
+})
+
+//------------------------------------------------------------------------------
+
+const foodsArr=[
+  {
+    "index":1,
+    "name":"food1",
+    "color":"DarkBlue",
+    "srcFoodObj":"../../assets/images/health.jpg",
+    "height":"300px",
+    "border":"3px solid pink"
+  },
+  {
+    "index":2,
+    "name":"food2",
+    "color":"BlueViolet ",
+    "srcFoodObj":"../../assets/images/healthy-food.jpg",
+    "height":"300px",
+    "border":"3px solid red"
+  },
+  {
+    "index":3,
+    "name":"food3",
+    "color":"DarkCyan",
+    "srcFoodObj":"../../assets/images/milk.jpg",
+    "height":"300px",
+    "border":"3px solid green"
+  }
+];
+console.log("foodsArr is : " , foodsArr);//foodsArr is :  (3) [{…}, {…}, {…}]
+console.log("foodsArr.length is : " , foodsArr.length);//3
+
+const foodLis=foodsArr.map((el , index) =>{
+  //foodLi este un li ce va primi cate un obiect(unele proprietati si valori) din foodsArr
+  let foodLi=document.createElement("li");
+  foodLi.style.margin="0.5em";
+  foodLi.style.padding="0.5em";
+  foodLi.style.backgroundColor=el.color;
+  foodLi.style.border=el.border;
+  foodLi.innerText=`The name of this dish is ${el.name} and the index is : ${el.index}`;
+  //map are return
+  return foodLi;
+});
+
+const foodUl=document.createElement("ul");
+foodUl.style.border="3px solid yellowgreen";
+
+foodLis.forEach(el =>{
+  //el reprezinta fiecare foodLi
+  foodUl.appendChild(el);
+})
+
+//map are return
+const foodIMAGINI=foodsArr.map((el , index) =>{
+  let foodImg=document.createElement("img");
+  foodImg.src=el.srcFoodObj;
+  foodImg.alt=`alt-${el.index}-img`;
+  foodImg.style.height=el.height;
+  foodImg.style.border=el.border;
+  return foodImg;
+})
+
+document.getElementById('section20').appendChild(foodUl);
+
+foodIMAGINI.forEach(el =>{
+  //el reprezinta fiecare im
+  foodUl.appendChild(el);
+})
+
+//------------------------------------------------------------------------------
 
 
+const foodsArr2=[
+  {
+    "index":4,
+    "name":"food4",
+    "color":"LimeGreen",
+    "backgroundDivObj":"url(../../assets/images/image-right1.jpg)",
+    "height":"300px",
+    "border":"3px solid IndianRed"
+  },
+  {
+    "index":5,
+    "name":"food5",
+    "color":"yellow",
+    "backgroundDivObj":"url(../../assets/images/onion.png)",
+    "height":"300px",
+    "border":"3px solid Khaki "
+  },
+  {
+    "index":6,
+    "name":"food6",
+    "color":"orange",
+    "backgroundDivObj":"url(../../assets/images/tomatoes.png)",
+    "height":"300px",
+    "border":"3px solid LawnGreen"
+  },
+  {
+    "index":7,
+    "name":"food7",
+    "color":"yellowgreen",
+    "backgroundDivObj":"url(../../assets/images/sugar.jpg)",
+    "height":"300px",
+    "border":"3px solid red"
+  }
+];
+
+console.log("foodsArr2 is : " , foodsArr2);
+console.log("foodsArr2.length is : " , foodsArr2.length);
+
+const foodArticles=foodsArr2.map((el , index) =>{
+
+  let divSingle=document.createElement("div");
+  divSingle.style.border=el.border;
+  divSingle.style.backgroundImage=el.backgroundDivObj;
+  divSingle.style.padding="1em";
+  divSingle.style.margin="0.5em calc(50% - 200px)";
+  divSingle.style.height=el.height;
+  divSingle.style.width="400px";
+  divSingle.style.backgroundSize="cover";
+  divSingle.style.backgroundPosition="center";
+  divSingle.style.backgroundRepeat="no-repeat";
+  divSingle.innerText=`Name of dish is ${el.name}.
+                       The  index is ${el.index}.`;
+  divSingle.style.color="black";
+
+  return divSingle;
+})
+
+const divFood=document.createElement("div");
+      divFood.style.border="3px dashed red";
+      divFood.style.padding="0.5em";
 
 
+foodArticles.forEach((el , index) =>{
+  //el reprezinta fiecare divSingle
+    divFood.appendChild(el);
+})
 
 
+document.getElementById('section21').appendChild(divFood);
 
+//19 04 19042022 andrei
 
+const button = {
+  text: "Send message",
+  id: "sendMsg",
+  width: 100,
+  padding: 20
+};
 
+function sendMsg(button) {
+  return `This is a button.\nIt is ${button.width} wide.\nThe text on it says ${button.text}.`;
+}
+//se afiseaza in consola cu console.log() pt ca functia are return , nu are console.log()
+console.log("sendMsg(button) is : " , sendMsg(button));
 
-
-
-
+const andreiMessage=document.getElementById('andreiMessage');
+andreiMessage.innerText=sendMsg(button);
+andreiMessage.style.border="3px dotted orange";
 
 
 
@@ -675,3 +1296,18 @@ console.log("new people array after function call is : ", newPeople);
 
 
 /////////////////////////
+// let foodParagraph=document.createElement("p");
+// foodParagraph.style.border="3px dotted indigo";
+// foodParagraph.style.padding="0.5em";
+// foodParagraph.style.margin="0.5em";
+// foodParagraph.innerText=`Name of dish is ${el.name}.
+//                          The  index is ${el.index}.`;
+//
+// let imgFood=document.createElement("img");
+//     imgFood.style.height=el.height;
+//     imgFood.style.border=el.border;
+//     imgFood.style.padding="1em";
+//     imgFood.src=el.srcFoodObj;
+//     imgFood.alt=`img-${el.index}-food`;
+//
+//     return  foodParagraph , imgFood;
