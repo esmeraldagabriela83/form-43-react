@@ -1276,6 +1276,276 @@ console.log("sendMsg(button) is : " , sendMsg(button));
 const andreiMessage=document.getElementById('andreiMessage');
 andreiMessage.innerText=sendMsg(button);
 andreiMessage.style.border="3px dotted orange";
+//------------------------------------------------------------------------------
+
+const drinks=[
+  {
+    "index":1,
+    "name":"drink1",
+    "color":"yellowgreen",
+    "backgroundDivObj":"url(../../assets/images/sugar.jpg)",
+    "height":"300px",
+    "border":"3px solid red"
+  },
+  {
+    "index":2,
+    "name":"drink2",
+    "color":"pink",
+    "backgroundDivObj":"url(../../assets/images/ginger.png)",
+    "height":"300px",
+    "border":"3px solid green"
+  },
+  {
+    "index":3,
+    "name":"drink3",
+    "color":"crimson",
+    "backgroundDivObj":"url(../../assets/images/pink-greens.jpg)",
+    "height":"300px",
+    "border":"3px solid brown"
+  },
+  {
+    "index":4,
+    "name":"drink4",
+    "color":"BurlyWood",
+    "backgroundDivObj":"url(../../assets/images/garlic.png)",
+    "height":"300px",
+    "border":"3px solid DarkGoldenRod"
+  }
+];
+
+console.log("drinks is : " , drinks);//drinks is :  (4) [{…}, {…}, {…}, {…}]
+console.log("drinks.length is : " , drinks.length);//drinks.length is :  4
+
+function showDrink(drinkObj){
+  const drinkTemplate=`the index of drink is ${drinkObj.index} and the name is ${drinkObj.name} .`
+
+let drinkDiv=document.createElement("div");
+drinkDiv.style.border=drinkObj.border;
+drinkDiv.style.height=drinkObj.height;
+drinkDiv.style.width="400px";
+drinkDiv.style.padding="1em";
+drinkDiv.style.margin="0.5em calc(50% - 200px)";
+drinkDiv.style.backgroundImage=drinkObj.backgroundDivObj;
+drinkDiv.style.backgroundSize="cover";
+drinkDiv.style.backgroundPosition="center";
+drinkDiv.style.backgroundRepeat="no-repeat";
+
+drinkDiv.innerText=drinkTemplate;
+
+return drinkDiv;
+}
+
+const articleDrinks=document.createElement("article");
+articleDrinks.style.border="3px dotted red";
+
+for(let i=0 ; i<drinks.length ; i++){
+  //apel functie
+  console.log(showDrink(drinks[i]));
+articleDrinks.appendChild(showDrink(drinks[i]));
+}
+
+document.getElementById('section23').appendChild(articleDrinks);
+
+//------------------------------------------------------------------------------
+
+const juices=[
+  {
+    "index":1,
+    "name":"juice1",
+    "color":"BurlyWood",
+    "backgroundDivObj":"url(../../assets/images/healthy-food.jpg)",
+    "height":"200px",
+    "border":"3px solid DarkGoldenRod"
+  },
+  {
+    "index":2,
+    "name":"juice2",
+    "color":"orange",
+    "backgroundDivObj":"url(../../assets/images/pink-greens.jpg)",
+    "height":"300px",
+    "border":"3px solid DarkRed"
+  },
+  {
+    "index":3,
+    "name":"juice3",
+    "color":"magenta",
+    "backgroundDivObj":"url(../../assets/images/pink-sweets.jpg)",
+    "height":"400px",
+    "border":"3px solid indigo"
+  }
+];
+
+console.log("juices is : " , juices);//(3) [{…}, {…}, {…}]
+console.log("juices.length is : " , juices.length);//juices.length is :  3
+
+function showJuice(juiceObj){
+  let juiceDiv=document.createElement("div");
+  juiceDiv.style.border=juiceObj.border;
+  juiceDiv.style.height=juiceObj.height;
+  juiceDiv.style.width="400px";
+  juiceDiv.style.padding="1em";
+  juiceDiv.style.margin="3.5em calc(50% - 200px)";
+  juiceDiv.style.backgroundImage=juiceObj.backgroundDivObj;
+  juiceDiv.style.backgroundSize="cover";
+  juiceDiv.style.backgroundPosition="center";
+  juiceDiv.style.backgroundRepeat="no-repeat";
+
+let juiceParagraph=document.createElement("p");
+juiceParagraph.style.border=juiceObj.border;
+juiceParagraph.innerText=`the juice name is : ${juiceObj.name} and index is : ${juiceObj.index} .`;
+juiceParagraph.style.marginTop="-3.5em";
+juiceParagraph.style.textAlign="center";
+
+juiceDiv.appendChild(juiceParagraph);
+
+return juiceDiv;
+}
+
+const articleJuices=document.createElement("article");
+articleJuices.style.border="3px solid Khaki";
+
+for(let i=0 ; i<juices.length ; i++){
+  //apel functie
+  //i devine fiecare object din array-ul juices
+  console.log(showJuice(juices[i]));
+  articleJuices.appendChild(showJuice(juices[i]));
+}
+
+document.getElementById('section24').appendChild(articleJuices);
+//------------------------------------------------------------------------------
+//grupa 1 19 04 19042022 discord
+
+const buttonCurs = {
+  text: "like Andrei message",
+  id: "btnID",
+  width: 100,
+  padding: 20
+};
+
+function sendMsgCurs(obj){
+  return `This is a buton.\nIt is ${obj.width} wide. \n The text on it says "${buttonCurs.text}" .`
+}
+
+//apel functie
+console.log(sendMsgCurs(buttonCurs));
+
+document.getElementById('likeAndrei').innerText=sendMsgCurs(buttonCurs);
+document.getElementById('likeAndrei').style.backgroundColor="pink";
+
+//--------------------------------------------------------------------------------
+
+const button2 = {
+  text: "my button 2",
+  id: "2sendMsg",
+  width: 200,
+  padding: 20
+};
+//functie constructor care creiaza un tag btn
+function HTMLButton(button){
+  const btn=`
+<button style="width:${button2.width}px ;
+               padding:${button2.padding}px"
+               id="${button2.id}">${button2.text}</button>
+  `;
+  return btn;
+}
+
+const htmlBtn = HTMLButton(button);
+console.log("--- htmlBtn is : " , htmlBtn);
+
+document.getElementById('section26').innerHTML=htmlBtn;
+document.getElementById('section26').innerHTML=htmlBtn;
+document.getElementById('section26').innerHTML=htmlBtn;
+//dar ramane un singur buton in pag , il suprascrie pe cel scris anterior
+document.getElementById('2sendMsg').addEventListener("click" , function(event){
+  event.preventDefault();
+  console.log("you clicked button2 with innerText: ", `${button2.text}`);
+  console.log("this is : " , this);
+})
+
+//------------------------------------------------------------------------------
+const button3 = {
+  text: "3 btn Send message",
+  id: "3sendMsg",
+  width: 300,
+  padding: 20
+};
+
+//functie constructor care creiaza un tag btn
+
+function DOMbutton(button3){
+  const btn=document.createElement("button");
+  btn.style.width=button3.width + "px";
+  btn.style.padding=button3.padding + "px";
+btn.id=button3.id;
+btn.innerText=button3.text;
+
+  return btn;
+}
+
+document.getElementById('section27').appendChild(DOMbutton(button3));
+//las un singur button pt ca altfel se suprapun id la tag-urle button
+// document.getElementById('section27').appendChild(DOMbutton(button3));
+// document.getElementById('section27').appendChild(DOMbutton(button3));
+
+document.getElementById('3sendMsg').addEventListener("click" , function(event){
+  event.preventDefault();
+  this.style.backgroundColor="orange";
+})
+
+//-----------------------------------------------------------------------------
+
+const arrBtns=[
+  {
+    "id":"btn11",
+    "widthBtn":200,
+    "borderBtn":"3px solid orange",
+    "paddingBtn":10,
+    "text":"I am btn 1"
+  },
+  {
+    "id":"btn12",
+    "widthBtn":250,
+    "borderBtn":"3px solid red",
+    "paddingBtn":20,
+    "text":"I am btn 2"
+  },
+  {
+    "id":"btn13",
+    "widthBtn":300,
+    "borderBtn":"3px solid darkred",
+    "paddingBtn":30,
+    "text":"I am btn 3"
+  }
+];
+
+//functie constructor care creiaza un tag btn
+
+function DOMbutton(objBtn){
+  const btn=document.createElement("button");
+  btn.style.width=objBtn.widthBtn + "px";
+  btn.style.padding=objBtn.paddingBtn + "px";
+btn.id=objBtn.id;
+btn.innerText=objBtn.text;
+
+  return btn;
+}
+
+for(let i=0 ; i<arrBtns.length ; i++){
+  document.getElementById('section28').appendChild(DOMbutton(arrBtns[i]));
+}
+
+document.getElementById('btn11').addEventListener("click" , function(event){
+  event.preventDefault();
+console.log("you clicked btn with id : " , arrBtns[0].id);
+  console.log("this is : " , this);
+  this.style.backgroundColor="pink";
+  this.style.fontWeight="bold";
+  this.style.letterSpacing="0.25em";
+  this.parentElement.style.backgroundColor="yellow";
+
+document.getElementById('paragraph28').innerText="discord grupa 1 pe 19 04 2022";
+})
 
 
 
@@ -1290,24 +1560,4 @@ andreiMessage.style.border="3px dotted orange";
 
 
 
-
-
-
-
-
-/////////////////////////
-// let foodParagraph=document.createElement("p");
-// foodParagraph.style.border="3px dotted indigo";
-// foodParagraph.style.padding="0.5em";
-// foodParagraph.style.margin="0.5em";
-// foodParagraph.innerText=`Name of dish is ${el.name}.
-//                          The  index is ${el.index}.`;
 //
-// let imgFood=document.createElement("img");
-//     imgFood.style.height=el.height;
-//     imgFood.style.border=el.border;
-//     imgFood.style.padding="1em";
-//     imgFood.src=el.srcFoodObj;
-//     imgFood.alt=`img-${el.index}-food`;
-//
-//     return  foodParagraph , imgFood;
