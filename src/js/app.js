@@ -50,6 +50,7 @@ function App(){
 <a href="./procedures/newTutorial.html"><li>new tutorial page</li></a>
 <a href="./procedures/schoolJSON.html"><li>school json page</li></a>
 <a href="./procedures/school-objects.html"><li>school objects page</li></a>
+<a href="./procedures/destructurare.html"><li>destructurare page</li></a>
     </ul>
 
     </div>
