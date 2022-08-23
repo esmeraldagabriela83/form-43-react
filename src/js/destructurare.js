@@ -273,7 +273,7 @@ document.getElementById('personParagraph').innerText=whoAreYou(person);
 //------------------------------------------------------------------------------
 
 const secondPerson={
-  "id":"second person",
+  "id":"secondPerson",
   "name": "Ionel",
   "lastName": "Milk",
   "yearOfBirth": 1977,
@@ -310,9 +310,246 @@ console.log(HTMLsecondPerson(secondPerson));
 
 document.getElementById('section5').innerHTML=HTMLsecondPerson(secondPerson);
 
-//mai incearca
+//------------------------------------------------------------------------------
 
+const foodObject={
+  "id":"oneFood",
+  "name": "cake",
+  "lastName": "sweet-food",
+  "yearOfBirth": 2020,
+  "proffesion": "make dental cavities",
+  "border":"3px solid orange",
+  "color":"floralwhite",
+  "imgUrl":"url(../../assets/images/cake.jpg)",
+  "width":"20em",
+  "padding":"15px"
+}
+console.log("---!!!--- foodObject is : " , foodObject);
 
+const section6=document.getElementById('section6');
+section6.style.border="3px solid red";
+section6.style.padding="0.5em";
+section6.style.margin="0.5em";
+section6.innerHTML=`
+<div id="${foodObject.id}"
+     style="  width:${foodObject.width} ;
+              padding:${foodObject.padding} ;
+              color:${foodObject.color} ;
+              height:300px ;
+              background-image:${foodObject.imgUrl};
+              background-size:cover;
+              background-position:center;
+              background-repeat:no-repeat">My name is ${secondPerson.name} ${foodObject.lastName} .
+            I am ${(new Date()).getFullYear() - secondPerson.yearOfBirth} years old.
+            My proffesion is ${foodObject.proffesion}.
+</div>
+`
+//------------------------------------------------------------------------------
 
+const arrOFfoodsObj=[
+  {
+    "id":"oneFood",
+    "name": "cake",
+    "lastName": "sweet-food",
+    "yearOfBirth": 2024,
+    "proffesion": "make dental cavities",
+    "border":"3px solid orange",
+    "color":"floralwhite",
+    "imgUrl":"url(../../assets/images/cake.jpg)",
+    "width":"20em",
+    "padding":"15px"
+  },
+  {
+    "id":"secondFood",
+    "name": "cucumbers",
+    "lastName": "castraveti",
+    "yearOfBirth": 2021,
+    "proffesion": "make salad",
+    "border":"3px solid CornflowerBlue",
+    "color":"blue",
+    "imgUrl":"url(../../assets/images/cucumbers.png)",
+    "width":"20em",
+    "padding":"15px"
+  },
+  {
+    "id":"thirdFood",
+    "name": "flour",
+    "lastName": "faina",
+    "yearOfBirth": 2025,
+    "proffesion": "make bread",
+    "border":"3px solid Chartreuse ",
+    "color":"floralwhite",
+    "imgUrl":"url(../../assets/images/flour.jpg)",
+    "width":"20em",
+    "padding":"15px"
+  },
+  {
+    "id":"fourthFood",
+    "name": "fruits",
+    "lastName": "fructe",
+    "yearOfBirth": 2025,
+    "proffesion": "make bread",
+    "border":"3px solid Cyan",
+    "color":"yellow",
+    "imgUrl":"url(../../assets/images/image-right1.jpg)",
+    "width":"20em",
+    "padding":"15px"
+  }
+];
+console.log("--- arrOFfoodsObj is : " , arrOFfoodsObj);//--- arrOFfoodsObj is :  (4) [{…}, {…}, {…}, {…}]
+console.log("---arrOFfoodsObj.length is : " , arrOFfoodsObj.length);//---arrOFfoodsObj.length is :  4
+//afisez in pagina doar un element din array
+document.getElementById('section7').innerHTML=`
+<div id="${arrOFfoodsObj[1].id}"
+     style="  width:${arrOFfoodsObj[1].width} ;
+              padding:${arrOFfoodsObj[1].padding} ;
+              color:${arrOFfoodsObj[1].color} ;
+              height:300px ;
+              background-image:${arrOFfoodsObj[1].imgUrl};
+              background-size:cover;
+              background-position:center;
+              background-repeat:no-repeat">My name is ${secondPerson.name} ${arrOFfoodsObj[1].lastName} .
+            I am ${(new Date()).getFullYear() - secondPerson.yearOfBirth} years old.
+            My proffesion is ${arrOFfoodsObj[1].proffesion}.
+</div>
+`;
+//afiseaza in pagina toate elementele din array
+//functia are return, este functie ce intoarce , nu este de afisare
+//functie constructor care construeste elemente html
+function HTMLFoodShowObject(myFoodObj){
+  const foodEachObject=`
+  <div id="${myFoodObj.id}"
+       style="  width:${myFoodObj.width} ;
+                padding:${myFoodObj.padding} ;
+                color:${myFoodObj.color} ;
+                border-radius:30px;
+                height:300px ;
+                background-image:${myFoodObj.imgUrl};
+                background-size:cover;
+                background-position:center;
+                background-repeat:no-repeat">My name is ${secondPerson.name} ${myFoodObj.lastName} .
+              I am ${(new Date()).getFullYear() - secondPerson.yearOfBirth} years old.
+              My proffesion is ${myFoodObj.proffesion}.
+  </div>
+  `;
+
+  return foodEachObject;
+}
+console.log("--- arrOFfoodsObj[3] is : " , arrOFfoodsObj[3]);
+//--- arrOFfoodsObj[3] is :  {id: 'fourthFood', name: 'fruits', lastName: 'fructe', yearOfBirth: 2025, proffesion: 'make bread', …}
+
+console.log("HTMLFoodShowObject(arrOFfoodsObj[3]) is : " , HTMLFoodShowObject(arrOFfoodsObj[3]));
+
+document.getElementById('oneFoodObjDiv').innerHTML=HTMLFoodShowObject(arrOFfoodsObj[3]);
+document.getElementById('oneFoodObjDiv').style.marginBottom="1em";
+
+//------------------------------------------------------------------------------
+const allEachLiFoodObj=document.querySelectorAll(".eachLiFoodObj");
+console.log("--- allEachLiFoodObj is : " , allEachLiFoodObj);//--- allEachLiFoodObj is :  NodeList(4) [li.eachLiFoodObj, li.eachLiFoodObj, li.eachLiFoodObj, li.eachLiFoodObj]
+console.log("allEachLiFoodObj.length is : " , allEachLiFoodObj.length);//allEachLiFoodObj.length is :  4
+
+for(let i=0 ; i<allEachLiFoodObj.length ; i++){
+  allEachLiFoodObj[i].innerHTML=HTMLFoodShowObject(arrOFfoodsObj[i]);
+  allEachLiFoodObj[i].style.margin="1em";
+  allEachLiFoodObj[i].style.border="5px solid yellowgreen";
+    allEachLiFoodObj[i].style.borderRadius="10px";
+}
+
+//------------------------------------------------------------------------------
+
+const unsplashDivsWithPhoto=[
+  {
+    "id":"imgOne",
+    "name": "photoOne",
+    "textObj": "I am photo 1",
+    "border":"3px solid Cyan",
+    "color":"red",
+    "imgUrl":"url(https://images.pexels.com/photos/12760654/pexels-photo-12760654.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load)",
+    "width":"20em",
+    "padding":"15px"
+  },
+  {
+    "id":"imgTwo",
+    "name": "photoTwo",
+    "textObj": "I am photo 2",
+    "border":"3px solid Brown",
+    "color":"green",
+    "imgUrl":"url(https://images.pexels.com/photos/11858609/pexels-photo-11858609.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load)",
+    "width":"20em",
+    "padding":"15px"
+  },
+  {
+    "id":"imgThree",
+    "name": "photoThree",
+    "textObj": "I am photo 3",
+    "border":"3px solid DeepPink",
+    "color":"blue",
+    "imgUrl":"url(https://images.pexels.com/photos/13010671/pexels-photo-13010671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load)",
+    "width":"20em",
+    "padding":"15px"
+  },
+  {
+    "id":"imgFour",
+    "name": "photoFour",
+    "textObj": "I am photo 4",
+    "border":"3px solid DarkSlateGray",
+    "color":"blue",
+    "imgUrl":"url(https://images.pexels.com/photos/12891215/pexels-photo-12891215.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load)",
+    "width":"20em",
+    "padding":"15px"
+  }
+];
+
+console.log("---unsplashDivsWithPhoto is arr : " , unsplashDivsWithPhoto);
+//---unsplashDivsWithPhoto is arr :  (4) [{…}, {…}, {…}, {…}]
+console.log("unsplashDivsWithPhoto.length is : " , unsplashDivsWithPhoto.length);
+//unsplashDivsWithPhoto.length is :  4
+
+//functie constructor care creeaza elemente in arborele DOM
+function DOMDivWithUnsplashPhoto(objUnsplash){
+const divAll=document.createElement("div");
+  divAll.style.border=objUnsplash.border;
+//
+  const div=document.createElement("div");
+  div.style.border=objUnsplash.border;
+  div.style.backgroundImage=objUnsplash.imgUrl;
+  div.style.backgroundSize="cover";
+  div.style.backgroundPosition="center";
+  div.style.backgroundRepeat="no-repeat";
+  div.style.width=objUnsplash.width;
+  div.style.height="700px";
+  div.style.padding=objUnsplash.padding;
+div.id=objUnsplash;
+
+  divAll.appendChild(div);
+//
+const unsplashH3=document.createElement("h3");
+unsplashH3.style.border=objUnsplash.border;
+unsplashH3.innerText=objUnsplash.textObj;
+
+divAll.appendChild(unsplashH3);
+//
+const unsplashParahraph=document.createElement("p");
+unsplashParahraph.style.border=objUnsplash.border;
+unsplashParahraph.innerText="the index of this element is : " + objUnsplash.id;
+
+divAll.appendChild(unsplashParahraph);
+//
+
+  return divAll;
+}
+
+document.getElementById('section9').appendChild(DOMDivWithUnsplashPhoto(unsplashDivsWithPhoto[2]));
+
+//
+
+document.getElementById('section99').appendChild(DOMDivWithUnsplashPhoto(unsplashDivsWithPhoto[3]));
+
+//
+document.getElementById('section10').style.border="3px dotted deeppink";
+
+for(let i=0 ; i<unsplashDivsWithPhoto.length ; i++){
+  document.getElementById('section10').appendChild(DOMDivWithUnsplashPhoto(unsplashDivsWithPhoto[i]));
+}
 
 /////////
