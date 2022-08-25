@@ -5,7 +5,7 @@ console.log("welcome inside school objects js");
 //https://www.w3schools.com/js/js_object_constructors.asp
 //https://www.w3schools.com/jsref/jsref_constructor_class.asp
 //https://www.programiz.com/javascript/constructor-function
-//https://softhunt.net/top-10-es6-features-by-example/
+
 
 
 //https://www.w3schools.com/js/js_objects.asp
