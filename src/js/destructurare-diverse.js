@@ -674,30 +674,257 @@ for(let i=0 ; i<allliCat.length ; i++){
   allliCat[i].innerHTML=getDestructuringCats(myArrCats[i]);
 }
 
+//------------------------------------------------------------------------------
+//https://www.w3schools.com/react/react_es6_destructuring.asp
+// Destructing Arrays
+// Here is the old way of assigning array items to a variable:
 
+//Before:
+const vehicles = ['mustang', 'f-150', 'expedition'];
+document.getElementById('infoVehiclesParagraph').innerText=vehicles.join(" , ");
+document.getElementById('infoVehiclesParagraph').style.border="3px solid orange";
 
+const car=vehicles[0];
+console.log("car is : " , car);
+const truck=vehicles[1];
+console.log("truck is : " , truck);
+const suv=vehicles[2];
+console.log("suv is : " , suv);
 
+document.getElementById('vehiclesParagraph').innerText=car + " , " + truck + " , " + suv;
+document.getElementById('vehiclesParagraph').style.border="3px solid yellowgreen";
 
+// Here is the new way of assigning array items to a variable:
+//
+// With destructuring:
+const vehicles1 = ['mustang', 'f-150', 'expedition'];
+const [car1, truck1, suv1]=vehicles1;
+console.log("car1 is : " , car1);
+console.log("truck1 is : " , truck1);
+console.log("suv1 is : " , suv1);
 
+document.getElementById('destructurareVehiclesParagraph').innerText=car1 + " , " + truck1 + " , " + suv1;
+document.getElementById('destructurareVehiclesParagraph').style.border="3px solid deepskyblue";
+//------------------------------------------------------------------------------
 
+//https://www.w3schools.com/react/tryit.asp?filename=tryreact_es6_destructuring_array
 
+function calculate(a , b){
+  const add=a + b;
+  const subtract=a -b;
+  const multiply=a * b;
+  const devide1=a/b;
+  const devide=Math.round(a/b);
 
+  return [add, subtract, multiply, devide1, devide];
+}
 
+console.log("calculate(4 , 7) is : " , calculate(4 , 7));
+//calculate(4 , 7) is :  (4) [11, -3, 28, 0.5714285714285714]
+document.getElementById('calculateParagraph1').innerText=calculate(4 , 7).join(" , ");
+document.getElementById('calculateParagraph2').innerText=calculate(440 , 70).join(" , ");
 
+const [add, subtract, multiply, devide1, devide]=calculate(4 , 7);
 
+document.getElementById('calculateParagraphAdd').innerText=calculate(4 , 7)[0];
+document.getElementById('calculateParagraphAdd').style.border="3px dotted red";
 
+//------------------------------------------------------------------------------
 
+// Destructuring Objects
+// Here is the old way of using an object inside a function:
+const vehicleOne = {
+  brand: 'Ford',
+  model: 'Mustang',
+  type: 'car',
+  year: 2021,
+  color: 'red'
+};
 
+myVehicle(vehicleOne);
 
+// old way
+function myVehicle(vehicle) {
+  const message = 'My ' + vehicle.type + ' is a ' + vehicle.color + ' ' + vehicle.brand + ' ' + vehicle.model + '.';
+  return message;
+}
 
+document.getElementById('myVehicleParagraph').innerText=myVehicle(vehicleOne);
+document.getElementById('myVehicleParagraph').style.border="3px solid indigo";
 
+//Here is the new way of using an object inside a function:
 
+//With destructuring:
 
+const vehicleTwo = {
+  brand: 'Ford',
+  model: 'Mustang',
+  type: 'car',
+  year: 2021,
+  color: 'red'
+}
 
+myVehicleDestructuring(vehicleTwo);
+//new way destructuring
 
+function myVehicleDestructuring({type, color, brand, model}){
+  const message = 'My ' + type + ' is a ' + color + ' ' + brand + ' ' + model + '.';
+  return message;
+}
 
+document.getElementById('myVehicleParagraphDestructuring').innerText=myVehicleDestructuring(vehicleTwo);
+document.getElementById('myVehicleParagraphDestructuring').style.border="3px solid orange";
 
+//------------------------------------------------------------------------------
+//https://www.w3schools.com/react/react_es6_destructuring.asp
 
+const vehicleThree = {
+  brand: 'Ford',
+  model: 'Mustang',
+  type: 'car',
+  year: 2021,
+  color: 'red',
+  registration: {
+    city: 'Houston',
+    state: 'Texas',
+    country: 'USA'
+  }
+}
+
+function myVehicleDestruct({model, registration: { state }}){
+  return 'My ' + model + ' is registered in ' + state + '.';
+}
+
+console.log("myVehicleDestruct(vehicleThree) is : " , myVehicleDestruct(vehicleThree));
+
+document.getElementById('myVehicleParagraphDestruct').innerText=myVehicleDestruct(vehicleThree);
+document.getElementById('myVehicleParagraphDestruct').style.border="3px solid forestgreen";
+
+//------------------------------------------------------------------------------
+
+//https://www.w3docs.com/learn-javascript/destructuring-assignment.html
+
+// second element is not needed
+let [name, age , profession] = ["David", "23", "programmer"];
+console.log("--- profession is : " , profession);
+//--- profession is :  programmer
+
+//
+
+let [aa, bb, cc] = "xyz";
+console.log("aa is : " , aa);
+console.log("bb is : " , bb);
+console.log("cc is : " , cc);
+
+//------------------------------------------------------------------------------
+
+let [one1, two2, three3] = new Set([1111, 22, 333333]);
+console.log("one1 is : " , one1);
+console.log("two2 is : " , two2);
+console.log("three3 is : " , three3);
+
+//------------------------------------------------------------------------------
+
+//https://stackoverflow.com/questions/41058569/what-is-the-difference-between-const-and-const-in-javascript
+const objCommon = {
+    email: "hello@gmail.com",
+    title: "Hello world from an unknown site ."
+}
+console.log("--- objCommon is : " , objCommon);
+//This is old school now.
+//Now if we want to assign or use email and title field of obj then we don't have to write the whole syntax like
+const myEmail=objCommon.email;
+console.log("--- myEmail is : " , myEmail);
+document.getElementById('emailParagraph').innerText=myEmail;
+
+const myTitle=objCommon.title;
+console.log("--- myTitle" , myTitle);
+document.getElementById('titleParagraph').innerText=objCommon.title;
+
+//We can use ES6 Destructuring assignment i.e.,
+//if our object contains 20 fields in obj object then we just have to write names of those fields which we want to use like this:
+
+const {email , title}=objCommon;
+document.getElementById('emailPar').innerText=email;
+document.getElementById('titlePar').innerText=title;
+//This is ES6 syntax-simpler one It will automatically assign email and title from obj, just name has to be correctly stated for required field.
+
+//Destructure an array, index of each item in array act as property (Due to an Array is an object in JavaScript)
+const {0: firstNum, 1: secondNum} = [100, 250]
+console.log("--- firstNum is : " , firstNum);
+console.log("--- secondNum is : " , secondNum);
+
+//Combine with Spread ... operator
+
+const  {mya, myb, ...myrest} = {mya: 10, myb: 20, c: 30, d: 40, e:55}
+console.log("--- mya is : " , mya); //--- mya is :  10
+document.getElementById('myaParagraph').innerText=mya;
+document.getElementById('myaParagraph').style.border="3px solid deeppink";
+
+console.log("--- myb" , myb); //--- myb 20
+document.getElementById('mybParagraph').innerText=myb;
+document.getElementById('mybParagraph').style.border="3px dotted indigo";
+
+console.log("--- myrest" , myrest ); //--- myrest {c: 30, d: 40, e: 55}
+document.getElementById('myrestParagraph').innerText=Object.keys(myrest) + " / " + Object.values(myrest);
+document.getElementById('myrestParagraph').style.border="3px dashed yellowgreen";
+
+const allmyrestLi=document.querySelectorAll(".myrestLi");
+console.log("allmyrestLi array is : " , allmyrestLi);
+for(let i=0 ; i<allmyrestLi.length ; i++){
+  allmyrestLi[i].style.border="3px dotted red";
+  allmyrestLi[i].style.margin="0.5em";
+  allmyrestLi[i].style.padding="0.5em";
+  allmyrestLi[i].innerText=Object.keys(myrest)[i] + " : " + Object.values(myrest)[i];
+}
+
+//------------------------------------------------------------------------------
+
+//https://www.w3docs.com/learn-javascript/destructuring-assignment.html
+
+let user = {};
+console.log("user before is : " , user);
+
+[user.name, user.surname] = "John Doe".split(' ');
+console.log("user.name is : " , user.name); // user.name is :  John
+console.log("user.surname is : " , user.surname);//user.surname is :  Doe
+
+console.log("user after is : " , user);
+//my try
+let myFoodOBJ={};
+console.log("myFoodOBJ before is : " , myFoodOBJ);
+
+[myFoodOBJ.food1, myFoodOBJ.food2, myFoodOBJ.food3]="castraveti rosii pepeni".split(" ");
+console.log("myFoodOBJ.food1 is : " , myFoodOBJ.food1);//myFoodOBJ.food1 is :  castraveti
+console.log("myFoodOBJ.food2 is : " , myFoodOBJ.food2);//myFoodOBJ.food2 is :  rosii
+console.log("myFoodOBJ.food3 is : " , myFoodOBJ.food3);//myFoodOBJ.food3 is :  pepeni
+
+console.log("myFoodOBJ after is : " , myFoodOBJ);
+//myFoodOBJ after is :  {food1: 'castraveti', food2: 'rosii', food3: 'pepeni'}
+
+const allmyFoodLi=document.querySelectorAll(".myFoodLi");
+console.log("allmyFoodLi is arr:" , allmyFoodLi);
+//allmyFoodLi is arr: NodeList(3) [li.myFoodLi, li.myFoodLi, li.myFoodLi]
+
+for(let i=0 ; i<allmyFoodLi.length ; i++){
+  allmyFoodLi[i].style.border="3px dotted yellow";
+  allmyFoodLi[i].innerText=Object.keys(myFoodOBJ)[i] + " : " + Object.values(myFoodOBJ)[i];
+}
+//------------------------------------------------------------------------------
+//Default values
+const {aaa = 10, bbb  = 20 ,ccc="myString stringMy"} = {aaa: 15};
+
+console.log("aaa is : " , aaa); // aaa is :  15
+console.log("bbb is : " , bbb); // bbb is :  20
+console.log("ccc is : " , ccc);//ccc is :  myString stringMy
+
+//------------------------------------------------------------------------------
+
+//Assigning to new variable names
+const {p: anothera, q: anotherb} = {p: 10, q: 20};
+
+console.log(anothera); // 10
+console.log(anotherb); // 20
 
 
 //https://www.programiz.com/javascript/constructor-function

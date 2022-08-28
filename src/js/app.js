@@ -52,6 +52,7 @@ function App(){
 <a href="./procedures/school-objects.html"><li>school objects page</li></a>
 <a href="./procedures/destructurare.html"><li>destructurare page</li></a>
 <a href="./procedures/destructurare-diverse.html"><li>diverse destructurare page</li></a>
+<a href="./procedures/constructor.html"><li>constructor page</li></a>
     </ul>
 
     </div>
