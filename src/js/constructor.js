@@ -361,19 +361,105 @@ document.getElementById('zacuscaAutumnParagraph3').innerText=zacuscaAutumn3.make
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
 //Prototype methods
 
+//9 08 2022
+class ClassMates{
+  constructor(name,age){
+    //initializare proprietati
+    this.myname=name;
+    this.myage=age;
+  }
+  //initializare metode
+  displayInfo(){
+    return this.myname + " is " + this.myage + " years old! ";
+  }
+}
 
+let classmate1=new ClassMates("Mihaela" , 39);
+console.log("classmate1 is : " , classmate1);
+// classmate1 is :
+// ClassMates {myname: 'Mihaela', myage: 39}
+// myage
+// :
+// 39
+// myname
+// :
+// "Mihaela"
+// [[Prototype]]
+// :
+// Object
+// constructor
+// :
+// class ClassMates
+// displayInfo
+// :
+// ƒ displayInfo()
+// [[Prototype]]
+// :
+// Object
+//apel functie cu console.log() pt ca are doar return
+console.log("classmate1.displayInfo() is : " , classmate1.displayInfo());
+//classmate1.displayInfo() is :  Mihaela is 39 years old!
 
+document.getElementById('myclassmate1').innerText=classmate1.displayInfo();
+document.getElementById('myclassmate1').style.color="yellowgreen";
 
+let classmate2=new ClassMates("Alex" , 37);
+document.getElementById('myclassmate2').innerText=classmate2.displayInfo();
 
+let classmate3=new ClassMates("Cornelia" , 63);
+document.getElementById('myclassmate3').innerText=classmate3.displayInfo();
 
+//------------------------------------------------------------------------------
+function Animal(name){
+  this.myname=name;
+}
 
+console.log("Animal is : " , Animal);
+// Animal is :  ƒ Animal(name){
+//   this.myname=name;
+// }
 
+Animal.prototype.speak=function(){
+  console.log(`${this.myname} makes a noise.`);
+  return `${this.myname} makes another noise.`
+}
 
+let animal1=new Animal("micuPisicu");
+console.log("animal1 is : " , animal1);
+//animal1 is :  Animal {myname: 'micuPisicu'}
+console.log("animal1.speak() is : " , animal1.speak());
+//animal1.speak() is :  micuPisicu makes another noise.
 
+let animal2=new Animal("SoficuPisicu");
+console.log("animal2 is : " , animal2);
+//micuPisicu makes a noise.
+//constructor.js:430 animal1.speak() is :  micuPisicu makes another noise.
 
+console.log("animal2.speak() is : " , animal2.speak());
+//SoficuPisicu makes a noise.
+//constructor.js:437 animal2.speak() is :  SoficuPisicu makes another noise.
+document.getElementById('paragraphAnimal1').innerText=animal1.speak();
+document.getElementById('paragraphAnimal2').innerText=animal2.speak();
 
+//
+class Dog extends Animal{
+  speak(){
+    console.log(`${this.myname} barks at each man crossing the street.`);
+    return `${this.myname} barks at each man walking on the street.`;
+  }
+}
 
+let dog1=new Dog("Cutu1");
+dog1.speak();//Cutu1 barks at each man crossing the street.
+document.getElementById('paragraphDog1').innerText=dog1.speak();
+document.getElementById('paragraphDog1').style.color="deeppink";
 
+let dog2=new Dog("Cutu2");
+dog2.speak();//Cutu2 barks at each man crossing the street.
+document.getElementById('paragraphDog2').innerText=dog2.speak();
+document.getElementById('paragraphDog2').style.color="orange";
+
+//https://www.codegrepper.com/search.php?q=class%20javascript
 
 
 
