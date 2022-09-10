@@ -11,6 +11,7 @@ import About from "./about";
 import persons from "../../data/db";
 import TutorialArrowFunction from "./tutorialArrowFunction";
 
+import AppEx1 from "./exApp1.js";
 
 console.log("persons.users[1].id is  : " , persons.users[1].id);
 
@@ -53,6 +54,7 @@ function App(){
 <a href="./procedures/destructurare.html"><li>destructurare page</li></a>
 <a href="./procedures/destructurare-diverse.html"><li>diverse destructurare page</li></a>
 <a href="./procedures/constructor.html"><li>constructor page</li></a>
+<a href="./procedures/saturday.html"><li>saturday page</li></a>
     </ul>
 
     </div>
@@ -68,6 +70,9 @@ function App(){
     <div className="container">
     <Footer/>
     </div>
+
+<AppEx1/>
+
     </>
   )
 }

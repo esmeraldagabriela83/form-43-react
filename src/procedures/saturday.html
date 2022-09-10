@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+
+  <!-- ion icons -->
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- ion icons -->
+
+  <title>saturday</title>
+  <link href="../css/main.css" rel="stylesheet" type="text/css" />
+
+  <style>
+.error{
+  border:3px solid red;
+}
+.okValue{
+  border:3px solid green;;
+}
+  </style>
+</head>
+
+<body>
+  <main class="container" style="display:flex ; flex-wrap:wrap">
+<section id="sectioninput" style="border:3px dotted yellow ; padding:0.5em ; margin:1em">
+
+    <p>diverse saturday: proteins , carbs, fat page</p><br></br>
+
+    <input type="text" id="exampleInput" name="example" value="" placeholder="write anything"/><br></br>
+
+      <button id="showButton">show your input value</button><br></br>
+
+      <p id="valueUserParagraph"></p>
+</section>
+
+    <section id="sectioncat" style="border:3px dotted yellow ; padding:0.5em ; margin:1em">
+<p id="catName-paragraph"></p>
+<p id="catFunc-paragraph"></p>
+<p id="micuParagraph"></p>
+
+<ul>
+<li class="mycatLi"></li>
+<li class="mycatLi"></li>
+<li class="mycatLi"></li>
+</ul>
+
+<ul>
+<li class="mycatLisecond"></li>
+<li class="mycatLisecond"></li>
+<li class="mycatLisecond"></li>
+</ul>
+    </section>
+
+    <section id="section1" style="border:3px dotted BlueViolet ; padding:0.5em ; margin:1em">
+
+      <form action="./index" method="get">
+              <input type="text" name="name" id="name" placeholder="Enter product name" value="">
+              <input type="text" name="protein" data-info="Proteins" id="proteins" placeholder="proteins:"  value="">
+              <input type="text" name="carbs" data-info="Carbs" id="carbs" placeholder="carbs:"  value="">
+              <input type="text" name="fat" data-info="Fat" id="fat" placeholder="fat:" value="">
+              <input type="submit" value="Adauga" id="add">
+          </form>
+
+          <h2>Product list:</h2>
+          <ul id="products">
+          </ul>
+
+    </section>
+
+      <section id="section2" style="border:3px dotted magenta ; padding:0.5em ; margin:1em">
+<p id="food1Paragraph"></p>
+<p id="food2Paragraph"></p>
+
+<p id="food1FastParagraph"></p>
+<p id="food2FastParagraph"></p>
+      </section>
+
+
+
+  </main>
+  <!-- <script src="build/out.js"></script> -->
+  <script src="../js/saturday.js"></script>
+
+</body>
+
+</html>
